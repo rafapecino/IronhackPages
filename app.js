@@ -65,7 +65,6 @@ function iniciarCronometro() {
 // Función para detener el cronómetro
 function detenerCronometro() {
     clearInterval(temporizador);
-    intentos = 0;
 }
 
 function seleccionarTarjeta(i) {
