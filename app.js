@@ -76,6 +76,8 @@ function seleccionarTarjeta(i) {
     if (tarjeta.style.transform !== "rotateY(180deg)") {
         tarjeta.style.transform = "rotateY(180deg)";
         selecciones.push(i);
+        // Incrementar el número de intentos cada vez que se selecciona una tarjeta
+
     }
     if (selecciones.length === 2) {
         deseleccionar(selecciones);
@@ -83,9 +85,10 @@ function seleccionarTarjeta(i) {
         intentos++;
         // Actualiza el elemento HTML donde muestras los intentos
         document.getElementById("intentos").textContent = intentos;
-    }
 
+    }
 }
+
 
 function deseleccionar(selecciones) {
     setTimeout(() => {
@@ -99,7 +102,7 @@ function deseleccionar(selecciones) {
         } else {
             trasera1.style.background = "plum";
             trasera2.style.background = "plum";
-            aciertos++; // Incrementa los aciertos
+            aciertos++;
             document.getElementById("aciertos").textContent = aciertos;
 
             // Verifica si se completó el juego comparando la longitud de las selecciones con el número total de tarjetas

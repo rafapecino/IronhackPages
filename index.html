@@ -8,14 +8,14 @@
 </head>
 
 <body>
+<h1>Memorama</h1>
 <div id="tablero"></div>
-<br>
-<div class="nuevo-juego" onclick="generarTablero()">Nuevo Juego</div>
-<div id="cronometro">Tiempo: <span id="tiempo">0</span> segundos</div>
-<div id="intentos">Intentos: <span id="intentos-num">0</span></div>
-<div id="aciertos">Aciertos: <span id="aciertos-num">0</span></div>
-<button onclick="mostrarInstrucciones()">Mostrar Instrucciones</button>
-
+<div>
+    <p>Intentos realizados: <span id="intentos">0</span></p>
+    <p>Tiempo transcurrido: <span id="tiempo">0</span> segundos</p>
+    <p>Aciertos encontrados: <span id="aciertos">0</span></p>
+</div>
+<button class="nuevo-juego" onclick="generarTablero()">Nuevo Juego</button>
 <script src="app.js"></script>
 </body>
 
