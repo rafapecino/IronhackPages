@@ -1,68 +1,63 @@
-:root {
-    --w: calc(70vw / 6);
-    --h: calc(70vh / 4);
-}
-
-* {
-    transition: all 0.5s;
-}
-
 body {
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     margin: 0;
-    background: lightgreen;
-    min-height: 100vh;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    font-family: calibri;
 }
 
-div {
-    display: inline-block;
+#tablero {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
 }
 
-.area-tarjeta,
-.tarjeta,
-.cara {
-    cursor: pointer;
-    width: var(--w);
-    min-width: 100px;
-    height: var(--h);
+.area-tarjeta {
+    perspective: 1000px;
 }
 
 .tarjeta {
+    width: 100%;
+    height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    animation: iniciar 5s;
+    transition: transform 0.5s;
 }
 
 .cara {
+    width: 100%;
+    height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    box-shadow: inset 0 0 0 5px white;
-    font-size: 500%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2em;
 }
 
-.trasera {
-    background-color: lightcyan;
+.cara.superior {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.cara.trasera {
+    background-color: #fff;
     transform: rotateY(180deg);
 }
 
-.superior {
-    background: linear-gradient(green, darkgreen);
+.nuevo-juego {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.nuevo-juego {
-    cursor: pointer;
-    background: linear-gradient(darkgreen, green);
-    padding: 20px;
-    border-radius: 50px;
-    border: white 5px solid;
-    font-size: 130%;
+#cronometro, #intentos {
+    margin-top: 20px;
+    font-size: 1.2em;
 }
+
