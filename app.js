@@ -3,7 +3,7 @@ let selecciones = [];
 let temporizador = 0;
 let tiempo = 0;
 let intentos = 0;
-let aciertos = 0; // Nueva variable para contar los aciertos
+let aciertos = 0;
 
 // Genera el tablero inicial
 generarTablero();
@@ -20,7 +20,6 @@ function generarTablero() {
     tiempo = 0; // Restablecer el tiempo a cero
     intentos = 0; // Restablecer los intentos a cero
     aciertos = 0; // Restablecer los aciertos a cero
-
     cargarIconos();
     selecciones = [];
     const tablero = document.getElementById("tablero");
