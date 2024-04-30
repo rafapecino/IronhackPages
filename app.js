@@ -3,6 +3,7 @@ let selecciones = [];
 let temporizador = 0;
 let tiempo = 0;
 let intentos = 0;
+let aciertos = 0; // Nueva variable para contar los aciertos
 
 // Genera el tablero inicial
 generarTablero();
@@ -18,6 +19,7 @@ function generarTablero() {
     detenerCronometro();
     tiempo = 0; // Restablecer el tiempo a cero
     intentos = 0; // Restablecer los intentos a cero
+    aciertos = 0; // Restablecer los aciertos a cero
 
     cargarIconos();
     selecciones = [];
@@ -65,6 +67,8 @@ function iniciarCronometro() {
 // Función para detener el cronómetro
 function detenerCronometro() {
     clearInterval(temporizador);
+    intentos = 0;
+    aciertos = 0;
 }
 
 function seleccionarTarjeta(i) {
@@ -80,6 +84,7 @@ function seleccionarTarjeta(i) {
         // Actualiza el elemento HTML donde muestras los intentos
         document.getElementById("intentos").textContent = intentos;
     }
+
 }
 
 function deseleccionar(selecciones) {
@@ -94,16 +99,20 @@ function deseleccionar(selecciones) {
         } else {
             trasera1.style.background = "plum";
             trasera2.style.background = "plum";
-        }
-        // Verifica si se completó el juego comparando la longitud de las selecciones con el número total de tarjetas
-        if (selecciones.length === 24) {
-            detenerCronometro();
-            // Aquí puedes realizar cualquier acción adicional cuando se completa el juego
+            aciertos++; // Incrementa los aciertos
+            document.getElementById("aciertos").textContent = aciertos;
+
+            // Verifica si se completó el juego comparando la longitud de las selecciones con el número total de tarjetas
+            if (aciertos === 12) {
+                detenerCronometro();
+                // Muestra un mensaje emergente cuando se completa el juego
+                alert("¡Felicidades! Has completado el juego.");
+            }
         }
     }, 1000);
 }
 
-// Nuevo método para reiniciar el juego
-function reiniciarJuego() {
-    generarTablero();
+function mostrarInstrucciones() {
+    alert("Instrucciones del juego Memorama:\n\n1. Haz clic en una carta para voltearla y revelar su contenido.\n2. Haz clic en otra carta para intentar encontrar su pareja!\n3. Si las cartas coinciden se colorearán de color lila.\n4. El juego continúa hasta que encuentres todas las parejas.\n5. El cronómetro comenzará a contar el tiempo desde que se carga el tablero.\n7. BUENA SUERTE!");V
 }
+
